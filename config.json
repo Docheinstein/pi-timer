@@ -1,18 +1,19 @@
 {
   "width": 480,
-  "height": 300,
+  "height": 320,
 
-  "display_fontsize": 64,
-  "scramble_fontsize": 32,
+  "display_fontsize": 120,
+  "scramble_fontsize": 26,
+
   "background_color": "#3d4147",
-
-  "scramble_color": "#d3d6db",
+  "scramble_color": "#c2c1be",
   "display_color": "#d3d6db",
   "ready_color": "#18e615",
   "plus_two_color": "#db9448",
   "dnf_color": "#cc2f16",
 
   "timer_buttons": [32],
+  "cancel_buttons": [16777219, 16777216],
 
   "scramble_length": 20,
   "inspection_seconds": 15
