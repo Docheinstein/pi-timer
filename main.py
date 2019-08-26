@@ -50,7 +50,8 @@ def main():
         mouse_release=on_mouse_released,
         title="Pi Timer",
         background=config["background_color"],
-        icon="icon.png"
+        icon="icon.png",
+        size=(config["width"], config["height"])
     )
 
     # SCRAMBLE LABEL

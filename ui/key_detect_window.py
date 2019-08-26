@@ -9,6 +9,7 @@ class KeyDetectWindow(QWidget):
                  title=None,
                  background=None,
                  icon=None,
+                 size=None,
                  *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.key_press_callback = key_press
@@ -27,6 +28,9 @@ class KeyDetectWindow(QWidget):
 
         if icon:
             self.setWindowIcon(QIcon(icon))
+
+        if size:
+            self.setFixedSize(size[0], size[1])
 
     def keyPressEvent(self, event):
         self.key_press_callback(event)
