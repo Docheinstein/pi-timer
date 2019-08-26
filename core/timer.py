@@ -84,7 +84,7 @@ class RubikTimer:
 
     def _start_inspecting(self):
         print("Start inspecting")
-        self._deinit_timer()
+        self._cleanup()
 
         self.state = RubikTimer.State.INSPECTING
         self.event_callback(RubikTimer.Event.INSPECTING, self)

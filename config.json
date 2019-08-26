@@ -3,7 +3,7 @@
   "height": 320,
 
   "display_fontsize": 120,
-  "scramble_fontsize": 26,
+  "scramble_fontsize": 22,
 
   "background_color": "#3d4147",
   "scramble_color": "#c2c1be",
@@ -12,9 +12,18 @@
   "plus_two_color": "#db9448",
   "dnf_color": "#cc2f16",
 
-  "timer_buttons": [32],
+  "timer_buttons": [32, 83],
   "cancel_buttons": [16777219, 16777216],
 
   "scramble_length": 20,
-  "inspection_seconds": 15
+  "inspection_seconds": 15,
+
+  "scramble_preview": true,
+  "scramble_preview_size": 180,
+  "scramble_up_color": "yellow",
+  "scramble_down_color": "white",
+  "scramble_front_color": "orange",
+  "scramble_back_color": "red",
+  "scramble_right_color": "royalblue",
+  "scramble_left_color": "lawngreen "
 }
