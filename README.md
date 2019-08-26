@@ -1,12 +1,12 @@
-##Pi Timer
+## Pi Timer
 
 A really really basic rubik's cube timer.
 
-#### Why
+### Why
 
 The main purpose of this rubik's timer against the others is to be used with low resolution, in particular is designed to be used with raspberry on 3.5' LCD (480x320), but works with any resolution obviously.
 
-#### Functionalities
+### Functionalities
 
 1. Scramble generator 
 2. Scramble preview
@@ -14,11 +14,11 @@ The main purpose of this rubik's timer against the others is to be used with low
 
 (coming soon: stats)
 
-#### What it looks like
+### What it looks like
 
 ![PiTimer](pitimer.png)
 
-#### Usage
+### Usage
 
 ```
 git clone https://github.com/Docheinstein/pi-timer.git
@@ -26,7 +26,7 @@ cd pi-timer
 python3 main.py
 ```
 
-#### Settings
+### Settings
 
 Pi Timer is highly customizable.  
 Modify the `config.json` as needed.  
