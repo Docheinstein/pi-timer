@@ -16,7 +16,7 @@ The main purpose of this rubik's timer against the others is to be used with low
 
 #### What it looks like
 
-![PiTimer][pitimer.png]
+![PiTimer](pitimer.png)
 
 #### Usage
 
