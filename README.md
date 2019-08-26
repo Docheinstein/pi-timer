@@ -1,10 +1,10 @@
 ## Pi Timer
 
-A really really basic rubik's cube timer.
+A really simple and customizable rubik's timer, designed for raspberry's LCDs.
 
 ### Why
 
-The main purpose of this rubik's timer against the others is to be used with low resolution, in particular is designed to be used with raspberry on 3.5' LCD (480x320), but works with any resolution obviously.
+The main purpose of this rubik's timer against the others is to be used with low resolution, in particular is designed for raspberry's LCD (480x320), but works with any O.S. and resolution.
 
 ### Functionalities
 
