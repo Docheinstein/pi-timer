@@ -48,7 +48,10 @@ def main():
         key_release=on_key_released,
         mouse_press=on_mouse_pressed,
         mouse_release=on_mouse_released,
-        background=config["background_color"])
+        title="Pi Timer",
+        background=config["background_color"],
+        icon="icon.png"
+    )
 
     # SCRAMBLE LABEL
 
