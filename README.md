@@ -50,6 +50,7 @@ The default `config.json` content is the following:
 
   "timer_buttons": [32, 83],
   "cancel_buttons": [16777219, 16777216],
+  "stackmat_mode": false,
 
   "scramble_length": 20,
   "inspection_seconds": 15,

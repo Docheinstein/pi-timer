@@ -26,13 +26,24 @@ def main():
 
     # MAIN WINDOW
 
+    pressed_buttons = {}
+
     def on_key_pressed(event):
         if event.key() in config["timer_buttons"]:
-            timer.press()
+            pressed_buttons[event.key()] = True
+            valid_buttons_pressed_count = 0
+            for b in config["timer_buttons"]:
+                if pressed_buttons.get(b):
+                    valid_buttons_pressed_count += 1
+            count_threshold = 2 if config["stackmat_mode"] else 1
+            if valid_buttons_pressed_count >= count_threshold:
+                timer.press()
+
         elif event.key() in config["cancel_buttons"]:
             timer.reset()
 
     def on_key_released(event):
+        pressed_buttons[event.key()] = False
         if not event.isAutoRepeat() and event.key() in config["timer_buttons"]:
             timer.release()
 
