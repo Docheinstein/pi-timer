@@ -31,6 +31,8 @@ python3 main.py
 Pi Timer is highly customizable.  
 Modify the `config.json` as needed.  
 The default `config.json` content is the following:
+
+
 ``` 
 {
   "width": 480,

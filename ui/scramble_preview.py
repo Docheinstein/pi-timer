@@ -7,20 +7,25 @@ from cube.commons import *
 
 
 class ScramblePreview(QWidget):
+    SPACE_SIZE = 3
+
     HORIZONTAL_CELL_COUNT = 4 * 3
     VERTICAL_CELL_COUNT = 3 * 3
 
     HORIZONTAL_LINES = HORIZONTAL_CELL_COUNT + 1
     VERTICAL_LINES = VERTICAL_CELL_COUNT + 1
 
+    HORIZONTAL_SPACE = 3 * SPACE_SIZE
+    VERTICAL_SPACE = 2 * SPACE_SIZE
+
     def __init__(self, width,
                  up_color, down_color, front_color,
                  back_color, right_color, left_color,
                  *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.cellsize = max(1, int((width - ScramblePreview.HORIZONTAL_LINES) /
+        self.cellsize = max(1, int((width - ScramblePreview.HORIZONTAL_LINES - ScramblePreview.HORIZONTAL_SPACE) /
                                    ScramblePreview.HORIZONTAL_CELL_COUNT))
-        self.margin = width - ScramblePreview.HORIZONTAL_LINES - \
+        self.margin = width - ScramblePreview.HORIZONTAL_LINES - ScramblePreview.HORIZONTAL_SPACE - \
                       (self.cellsize * ScramblePreview.HORIZONTAL_CELL_COUNT)
         self.state = None
 
@@ -34,8 +39,10 @@ class ScramblePreview(QWidget):
         self.init_ui()
 
     def init_ui(self):
-        self.setFixedSize(ScramblePreview.HORIZONTAL_CELL_COUNT * self.cellsize + ScramblePreview.HORIZONTAL_LINES + 4,
-                          ScramblePreview.VERTICAL_CELL_COUNT * self.cellsize + ScramblePreview.VERTICAL_LINES + 4)
+        self.setFixedSize(ScramblePreview.HORIZONTAL_CELL_COUNT * self.cellsize +
+                          ScramblePreview.HORIZONTAL_LINES + ScramblePreview.HORIZONTAL_SPACE + 4,
+                          ScramblePreview.VERTICAL_CELL_COUNT * self.cellsize +
+                          ScramblePreview.VERTICAL_LINES + ScramblePreview.VERTICAL_SPACE + 4)
         self.show()
 
     def update_state(self, state):
@@ -92,12 +99,17 @@ class ScramblePreview(QWidget):
             painter.setBrush(Qt.transparent)
             painter.drawRect(hmargin, vmargin, 3 * self.cellsize, 3 * self.cellsize)
 
-        up_margins = (self.margin + 3 * self.cellsize, self.margin)
-        left_margins = (self.margin, self.margin + 3 * self.cellsize)
-        front_margins = (self.margin + 3 * self.cellsize, self.margin + 3 * self.cellsize)
-        right_margins = (self.margin + 6 * self.cellsize, self.margin + 3 * self.cellsize)
-        back_margins = (self.margin + 9 * self.cellsize, self.margin + 3 * self.cellsize)
-        down_margins = (self.margin + 3 * self.cellsize, self.margin + 6 * self.cellsize)
+        def compute_margins(row, col):
+            x = self.margin + col * ((self.cellsize * 3) + ScramblePreview.SPACE_SIZE)
+            y = self.margin + row * ((self.cellsize * 3) + ScramblePreview.SPACE_SIZE)
+            return x, y
+
+        up_margins = compute_margins(0, 1)
+        left_margins = compute_margins(1, 0)
+        front_margins = compute_margins(1, 1)
+        right_margins = compute_margins(1, 2)
+        back_margins = compute_margins(1, 3)
+        down_margins = compute_margins(2, 1)
 
         draw_face(FACE_UP, self.state.up, *up_margins)
         draw_face(FACE_LEFT, self.state.left, *left_margins)
