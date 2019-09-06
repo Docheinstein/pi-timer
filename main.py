@@ -1,5 +1,6 @@
 import json
 
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import *
 
 from cube.cubescramble import CubeScramble
@@ -21,7 +22,7 @@ def main():
     except Exception as e:
         print("Cannot find/parse config.json\n", e)
         exit(-1)
-
+Qt.Key_Z
     app = QApplication([])
 
     # MAIN WINDOW
