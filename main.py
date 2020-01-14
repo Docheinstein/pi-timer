@@ -1,4 +1,5 @@
 import json
+import os
 
 from PyQt5.QtWidgets import *
 
@@ -10,12 +11,14 @@ from ui.key_detect_window import KeyDetectWindow
 from ui.scramble_label import ScrambleLabel
 from ui.scramble_preview import ScramblePreview
 
+__location__ = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 def main():
     # CONFIG (from json)
 
     try:
-        with open("config.json", "r") as config_file:
+        with open(os.path.join(__location__, "config.json"), "r") as config_file:
             config = json.loads(config_file.read())
             print("Loaded config: %s" % config)
     except Exception as e:
@@ -183,19 +186,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    # cs = CubeState()
-    #
-    # def is_bottom_cross_done():
-    #     return cs.down[UC] == cs.down[ML] == cs.down[MR] == cs.down[DC] == FACE_DOWN
-    #
-    # i = 0
-    # for m1 in CubeState.MOVES:
-    #     for m2 in CubeState.MOVES:
-    #         for m3 in CubeState.MOVES:
-    #             for m4 in CubeState.MOVES:
-    #                 for m5 in CubeState.MOVES:
-    #                     i += 1
-    #                     if i % 100000 == 0:
-    #                         print("# " + str(i))
-    #                     cs = CubeState()
-    #                     cs.moves(m1, m2, m3, m4, m5)
